@@ -8,8 +8,10 @@ miApp.use(bodyParser.urlencoded({ extended: true }));
 miApp.use(bodyParser.json());
 var jsonParser = bodyParser.json();
 
-miApp.listen(3000, () => {
-  console.log("El servidor está inicializado en el puerto 3000");
+const port = process.env.PORT || 3000;
+
+miApp.listen(port, () => {
+  console.log("El servidor está inicializado en el puerto ${port}");
 });
 
 miApp.post("/productos", jsonParser, function (req, res) {
